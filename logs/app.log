@@ -33,3 +33,40 @@ tests/test_cost_tag_check.py::test_duplicate_missing_resource_address_is_reporte
 tests/test_cost_tag_check.py::test_invalid_json_and_invalid_plan_shape_fail PASSED [100%]
 
 ============================== 9 passed in 0.02s ===============================
+============================= test session starts ==============================
+platform darwin -- Python 3.13.11, pytest-9.2.0, pluggy-1.7.0 -- /Users/mukeshjha/oceans-across-devops/haven-infra-assessment/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/mukeshjha/oceans-across-devops/haven-infra-assessment
+collecting ... collected 8 items
+
+tests/test_access_control.py::test_manager_cannot_access_other_landlord_account_report PASSED [ 12%]
+tests/test_access_control.py::test_manager_can_access_own_landlord_account_report PASSED [ 25%]
+tests/test_access_control.py::test_missing_tenant_denies_access PASSED   [ 37%]
+tests/test_access_control.py::test_missing_property_denies_access PASSED [ 50%]
+tests/test_access_control.py::test_tenant_with_unknown_property_denies_access PASSED [ 62%]
+tests/test_access_control.py::test_duplicate_tenant_ids_deny_ambiguous_access PASSED [ 75%]
+tests/test_access_control.py::test_duplicate_property_ids_deny_ambiguous_access PASSED [ 87%]
+tests/test_access_control.py::test_missing_ids_deny_access PASSED        [100%]
+
+============================== 8 passed in 0.02s ===============================
+============================= test session starts ==============================
+platform darwin -- Python 3.13.11, pytest-9.2.0, pluggy-1.7.0 -- /Users/mukeshjha/oceans-across-devops/haven-infra-assessment/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/mukeshjha/oceans-across-devops/haven-infra-assessment
+collecting ... collected 9 items
+
+tests/test_cost_tag_check.py::test_fixture_reports_only_resources_missing_landlord_account_tag PASSED [ 11%]
+tests/test_cost_tag_check.py::test_repeated_runs_have_identical_output_and_exit_code PASSED [ 22%]
+tests/test_cost_tag_check.py::test_tagged_create_and_update_pass_and_delete_noop_are_ignored PASSED [ 33%]
+tests/test_cost_tag_check.py::test_replacement_requires_tag PASSED       [ 44%]
+tests/test_cost_tag_check.py::test_missing_or_empty_account_tag_fails[tags0] PASSED [ 55%]
+tests/test_cost_tag_check.py::test_missing_or_empty_account_tag_fails[tags1] PASSED [ 66%]
+tests/test_cost_tag_check.py::test_missing_or_empty_account_tag_fails[tags2] PASSED [ 77%]
+tests/test_cost_tag_check.py::test_duplicate_missing_resource_address_is_reported_once PASSED [ 88%]
+tests/test_cost_tag_check.py::test_invalid_json_and_invalid_plan_shape_fail PASSED [100%]
+
+============================== 9 passed in 0.02s ===============================
+Missing landlord_account_id tag: aws_lambda_function.mls_feed_sync
+Missing landlord_account_id tag: aws_s3_bucket.listing_media
+Missing landlord_account_id tag: aws_lambda_function.mls_feed_sync
+Missing landlord_account_id tag: aws_s3_bucket.listing_media
