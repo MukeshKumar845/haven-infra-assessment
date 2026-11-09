@@ -26,4 +26,27 @@ def can_access_screening_report(
     Return True if actor may view report, False otherwise. Fail closed — if anything needed to
     make this determination is missing (tenant not found, property not found), return False.
     """
-    raise NotImplementedError("Implement this.")
+    # Resolve the ownership chain from the report itself. The report's tenant
+    # determines its property, and the property's landlord account is the
+    # authorization boundary for a property manager.
+    if not actor.landlord_account_id or not report.tenant_id:
+        return False
+
+    matching_tenants = [tenant for tenant in tenants if tenant.id == report.tenant_id]
+    if len(matching_tenants) != 1:
+        return False
+
+    tenant = matching_tenants[0]
+    if not tenant.property_id:
+        return False
+
+    matching_properties = [
+        property_ for property_ in properties if property_.id == tenant.property_id
+    ]
+    if len(matching_properties) != 1:
+        return False
+
+    property_ = matching_properties[0]
+    return bool(property_.landlord_account_id) and (
+        property_.landlord_account_id == actor.landlord_account_id
+    )
